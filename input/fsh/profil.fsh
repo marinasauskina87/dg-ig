@@ -40,25 +40,32 @@ Description: "Arzneimittelallergie, wie sie in der Hausarztpraxis erfasst und au
 
 // Anforderung 1: nur Allergien gegen Arzneimittel
 // * category TODO_Regel
+#medication
 
 // Anforderung 2: klinischer Status
 // * clinicalStatus TODO_Regel
+$allergy-clinical#active
 
 // Anforderung 3: Codes aus der Schweizer Allergieliste ($ch-allergy-vs)
 // * code TODO_Regel
+$sct#91936005 "Allergy to penicillin (finding)", $sct#294499007
+"Allergy to benzylpenicillin (finding)"
 
 // Anforderung 4: Kritikalität (wie gefährlich die Allergie ist)
 // * criticality TODO_Regel
+#high
 
 // Anforderung 5: Beginn der Allergie
 // * onset[x] TODO_Regel
+* onsetAge = 30 'a' "Jahre"
 
 // Anforderung 6: wer die Allergie erfasst hat
 // * recorder TODO_Regel
+# CH Practitioner
 
 // Anforderung 7: Reaktionen (die Symptome einer Reaktion stehen in reaction.manifestation)
 // * reaction TODO_Regel
 // * reaction.manifestation TODO_Regel   (nur falls ihr dafür eine Regel braucht)
-
+$sct#126485001 "Urticaria (disorder)"
 // Invariante (steht schon in invarianten.fsh), nur die // entfernen:
 // * obeys dg-allergy-1
